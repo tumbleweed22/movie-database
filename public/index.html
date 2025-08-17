@@ -59,8 +59,9 @@ button:hover {
   </table>
 
   <script>
+    const BASE_URL = 'https://movie-database-6vdh.onrender.com';
     async function fetchMovies() {
-      const res = await fetch('http://localhost:3000/movies');
+      const res = await fetch('https://movie-database-6vdh.onrender.com/movies');
       const movies = await res.json();
       return movies;
     }
@@ -96,7 +97,7 @@ button:hover {
       const watched = e.target.checked;
 
       try {
-        await fetch(`http://localhost:3000/movies/${movieId}/watched`, {
+        await fetch(`https://movie-database-6vdh.onrender.com/movies/${movieId}/watched`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ watched })
@@ -203,7 +204,7 @@ div.querySelector('button[data-id]').addEventListener('click', () => addMovieByT
 
 async function addMovieByTmdbId(tmdbId) {
   try {
-    const res = await fetch('http://localhost:3000/add-movie', {
+    const res = await fetch('https://movie-database-6vdh.onrender.com/movies', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tmdbId })
