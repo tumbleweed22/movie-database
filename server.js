@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 const axios = require('axios');
